@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Gabriel Winnie Widiyono</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #fdf8fa;
+            background-image: 
+                linear-gradient(to right, rgba(244, 114, 182, 0.15) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(244, 114, 182, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: #4a1525;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            border-bottom: 2px dashed #f472b6;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #db2777;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #701a75;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #db2777;
+        }
+
+        .btn-hire {
+            background-color: #f472b6;
+            color: #ffffff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 10px rgba(244, 114, 182, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn-hire:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 3.5rem 8% 2rem;
+        }
+
+        .profile-img-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #38bdf8;
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.25);
+            background-color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #9d174d;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero p {
+            color: #0284c7;
+            font-weight: 600;
+            background-color: #e0f2fe;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        /* Container & Sections */
+        .container {
+            padding: 2.5rem 8%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #9d174d;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background-color: #fbcfe8;
+            padding: 0.4rem 1.2rem;
+            border-radius: 12px;
+            border: 2px solid #f472b6;
+        }
+
+        /* About Section */
+        .about-card {
+            background-color: #ffffff;
+            border: 2px solid #bae6fd;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(186, 230, 253, 0.4);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed #f472b6;
+        }
+
+        .info-item {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            padding: 1rem;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .info-item h4 {
+            color: #0284c7;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .info-item p {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #4a1525;
+            margin-top: 0.2rem;
+        }
+
+        /* What I Can Do Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: #ffffff;
+            border: 2px solid #fbcfe8;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(251, 207, 232, 0.5);
+        }
+
+        .skill-card.blue-card {
+            border-color: #bae6fd;
+            box-shadow: 0 8px 20px rgba(186, 230, 253, 0.5);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #be185d;
+        }
+
+        .skill-card.blue-card h3 {
+            color: #0369a1;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .badge-pink {
+            background-color: #fce7f3;
+            color: #9d174d;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #fbcfe8;
+        }
+
+        .badge-blue {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #bae6fd;
+        }
+
+        /* Achievement Section */
+        .achievement-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .achievement-card {
+            background-color: #ffffff;
+            border: 2px solid #e0e7ff;
+            border-left: 6px solid #f472b6;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .achievement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .achievement-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #831843;
+        }
+
+        .achievement-year {
+            background-color: #38bdf8;
+            color: #ffffff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .organizer {
+            color: #0284c7;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        .achievement-desc {
+            color: #475569;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-certif-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-certif {
+            display: inline-block;
+            background-color: #ec4899;
+            color: #ffffff;
+            padding: 0.8rem 1.6rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.35);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-certif:hover {
+            transform: translateY(-2px);
+            background-color: #db2777;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background-color: #fce7f3;
+            border: 2px dashed #f472b6;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            background-color: #38bdf8;
+            color: #ffffff;
+            padding: 0.7rem 1.4rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(56, 189, 248, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.05);
+            background-color: #0284c7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #9d174d;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-top: 2px dashed #fbcfe8;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .container {
+                padding: 2rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <nav>
+        <div class="logo">GABRIEL WINNIE</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">What I Can Do</a></li>
+            <li><a href="#achievement">Achievement</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn-hire">Contact Me</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="profile-img-container">
+            <img src="Foto-Profil.jpg" alt="Gabriel Winnie Widiyono" class="profile-img">
+        </div>
+        <h1>Gabriel Winnie Widiyono</h1>
+        <p>S1 Sistem Informasi — Universitas Negeri Surabaya</p>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-card">
+            <p>Saya merupakan mahasiswa baru S1 Sistem Informasi Universitas Negeri Surabaya dengan latar belakang aktif dalam organisasi, kepanitiaan, dan kegiatan sosial sejak SMA. Berbekal pengalaman dalam koordinasi tim, perencanaan acara, pemrosesan data, serta pemanfaatan AI Tools, saya tertarik mengembangkan kemampuan di bidang Informatika untuk memberikan dampak positif bagi masyarakat.</p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>NIM</h4>
+                    <p>26051214080</p>
+                </div>
+                <div class="info-item">
+                    <h4>Prodi</h4>
+                    <p>S1 Sistem Informasi</p>
+                </div>
+                <div class="info-item">
+                    <h4>Instansi</h4>
+                    <p>UNESA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Can Do Section -->
+    <section id="skills" class="container">
+        <h2 class="section-title">What I Can Do</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Soft Skills & Kepemimpinan</h3>
+                <div class="badge-container">
+                    <span class="badge-pink">Leadership</span>
+                    <span class="badge-pink">Team Coordination</span>
+                    <span class="badge-pink">Event Planning</span>
+                    <span class="badge-pink">Public Speaking</span>
+                    <span class="badge-pink">Teamwork</span>
+                    <span class="badge-pink">Problem Solving</span>
+                </div>
+            </div>
+            <div class="skill-card blue-card">
+                <h3>Tools & Technical Certification</h3>
+                <div class="badge-container">
+                    <span class="badge-blue">Data Analytics (RevoU)</span>
+                    <span class="badge-blue">Google AI (Hacktiv8)</span>
+                    <span class="badge-blue">Google Gemini AI</span>
+                    <span class="badge-blue">HTML & CSS</span>
+                    <span class="badge-blue">Canva & MS Office</span>
+                    <span class="badge-blue">Google Workspace</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Section -->
+    <section id="achievement" class="container">
+        <h2 class="section-title">Achievement & Experience</h2>
+        <div class="achievement-list">
+            
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-title">Wakil Ketua Rombongan Prodi Sistem Informasi — BPH Rumpun Informatika</span>
+                    <span class="achievement-year">2026 – Sekarang</span>
+                </div>
+                <span class="organizer">Penyelenggara: Rumpun Informatika, Universitas Negeri Surabaya</span>
+                <p class="achievement-desc">Mendukung dan mengordinasikan mahasiswa prodi Sistem Informasi dalam lingkup Rumpun Informatika. Mengembangkan kepemimpinan dan koordinasi organisasi perguruan tinggi.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-title">Staf Konsumsi & Kesehatan — EFASCO 2026 (Ongoing)</span>
+                    <span class="achievement-year">2026</span>
+                </div>
+                <span class="organizer">Penyelenggara: BEM Fakultas Teknik, Universitas Negeri Surabaya</span>
+                <p class="achievement-desc">Terlibat dalam kepanitiaan Engineering Faculty Sport Champions (EFASCO) 2026, turnamen olahraga tingkat Fakultas Teknik, di bidang konsumsi dan dukungan kesehatan.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-title">Perwakilan Sekolah — Pelantikan Gabungan PMR & Peresmian Markas PMI</span>
+                    <span class="achievement-year">2024</span>
+                </div>
+                <span class="organizer">Penyelenggara: Palang Merah Indonesia (PMI) Kota Tangerang</span>
+                <p class="achievement-desc">Terpilih sebagai perwakilan sekolah dalam acara Pelantikan Gabungan PMR dan Peresmian Markas Kelapa Indah Unit yang diresmikan oleh Pj Wali Kota Tangerang.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-title">Anggota Sie Acara — PPKR (Koordinator Acara Natal 2025)</span>
+                    <span class="achievement-year">2023 – 2026</span>
+                </div>
+                <span class="organizer">Penyelenggara: PPKR, SMAN 15 Kota Tangerang</span>
+                <p class="achievement-desc">Berperan aktif di Sie Acara PPKR serta dipercaya menjadi Koordinator Sie Acara pada kegiatan Natal Tahunan 2025.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-title">Ketua Pelaksana — Pengukuhan Calon Anggota PMR</span>
+                    <span class="achievement-year">2025</span>
+                </div>
+                <span class="organizer">Penyelenggara: PMR Unit SMAN 15 Kota Tangerang</span>
+                <p class="achievement-desc">Memimpin persiapan dan koordinasi kegiatan pengukuhan calon anggota PMR pada tahun 2025.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <span class="achievement-title">Peringkat 9 Siswa Eligible SNBP</span>
+                    <span class="achievement-year">SMAN 15 Tangerang</span>
+                </div>
+                <span class="organizer">Penyelenggara: SMAN 15 Kota Tangerang</span>
+                <p class="achievement-desc">Meraih peringkat ke-9 dari 130 siswa eligible SNBP (dari total 324 siswa seangkatan) dengan rata-rata akumulasi nilai rapor sebesar 87,3 (Sem 1–5) dan 88,1 hingga lulus (Sem 1–6).</p>
+            </div>
+
+        </div>
+
+        <!-- Tombol Link Google Drive -->
+        <div class="btn-certif-container">
+            <a href="https://drive.google.com" target="_blank" class="btn-certif">📁 Lihat Dokumentasi & Sertifikat (Google Drive)</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-card">
+            <h3 style="color: #831843;">Mari Terhubung!</h3>
+            <p style="color: #9d174d; margin-top: 0.3rem;">Terbuka untuk kolaborasi, kegiatan organisasi, dan peluang profesional.</p>
+            <div class="contact-links">
+                <a href="mailto:gabrielwinnie@gmail.com" class="contact-item">Email Me</a>
+                <a href="https://www.linkedin.com/in/gabrielwinnie09" target="_blank" class="contact-item">LinkedIn</a>
+                <a href="https://www.instagram.com/gab.lielly" target="_blank" class="contact-item">Instagram</a>
+                <a href="https://github.com" target="_blank" class="contact-item">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Gabriel Winnie Widiyono. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
